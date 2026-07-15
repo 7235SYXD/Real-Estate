@@ -1,5 +1,4 @@
-# 🏡 Predicting Real Estate Listing Success and Price Optimization
-### Using Structural, Locational, and Textual Market Features
+# 🏡 Predicting Real Estate Listing Success and Price Optimization Using Structural, Locational, and Textual Market Features
 
 An end-to-end machine learning pipeline that predicts residential listing prices and listing outcomes (sold vs. active) across the Texas and New York markets — combining structural attributes, location encodings, and NLP-derived text signals through a tuned, stacked ensemble.
 
