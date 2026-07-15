@@ -1,6 +1,6 @@
 # 🏡 Predicting Real Estate Listing Success and Price Optimization Using Structural, Locational, and Textual Market Features
 
-An end-to-end machine learning pipeline that predicts residential listing prices and listing outcomes (sold vs. active) across the Texas and New York markets — combining structural attributes, location encodings, and NLP-derived text signals through a tuned, stacked ensemble.
+A machine learning pipeline from end to end to predict prices of listings and whether the listings will be sold or not in the states of Texas and New York, using structural features, geographic encodings, and text features from natural language processing derived text signals through a tuned, stacked ensemble.
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![scikit--learn](https://img.shields.io/badge/scikit--learn-ML-orange)
@@ -23,13 +23,12 @@ An end-to-end machine learning pipeline that predicts residential listing prices
 - [Detailed Results](#-detailed-results)
 - [Business Recommendations](#-business-recommendations)
 - [Limitations & Future Work](#-limitations--future-work)
-- [License](#-license)
 
 ---
 
 ## 📖 Overview
 
-Traditional automated valuation models (AVMs) rely almost entirely on structural attributes — bedrooms, bathrooms, square footage. This project tests how much **location** and **listing description text** add on top of that, using a properly validated, leakage-free pipeline across **119,979 listings** spanning two structurally different state markets.
+The conventional automated valuation models (AVMs) depend heavily on structural features. These include bedrooms, bathrooms, and area. The current study explores the significance of **location** and **text description of listings** beyond these structural variables for prediction, and employing a well-validated leakage-proof model pipeline based on **119,979 listings** from two states with distinct structures.
 
 **Three research questions drive the project:**
 
@@ -184,18 +183,18 @@ flowchart LR
 
 ## 💡 Business Recommendations
 
-1. **ZIP-level pricing as the primary anchor** — location features drove the single largest accuracy gain in the pipeline.
-2. **Invest in description quality, but at the individual-listing level** — the low NLP contribution here reflects a data-joining limitation, not proof that text doesn't matter.
-3. **Deploy the stacking ensemble in production** — it consistently beats any single model.
-4. **Use the classifier as a triage tool** — flag the bottom quartile of predicted sale probability for proactive intervention.
+1. **Pricing based on ZIP codes as the anchor** — location attributes helped achieve the largest leap in accuracy.
+2. **Invest in improving the text, but on a per-listing basis** — the low NLP contribution does not prove that the text is irrelevant; there are simply problems with the data join.
+3. **Employ the stacked ensemble in production** — it always beats any individual model.
+4. **Employ the classifier to identify listings** — tag those in the lowest quartile of expected sale probability.
 
 ---
 
 ## ⚠️ Limitations & Future Work
 
-- **State-level NLP aggregation:** the two description corpora don't share an ID with the structured price data, so text features are state-level averages, not per-listing signals — likely understating text's true predictive value (see e.g. Bushuyev et al., 2024; Kania Štykar, 2025 for row-level evidence).
-- **30.4% missingness in ZIP codes**, handled via city-level fallback.
-- **Random (not time-based) train/test split** — likely a mildly optimistic generalization estimate.
-- **Future work:** source a dataset with a genuine listing-level price↔description join; add a time-based split; geocode addresses to close the ZIP-missingness gap.
+- **NLP Aggregation at State Level**: The description datasets do not have the same ID as the structured prices, and therefore all text features have been computed on state level means rather than listing-level variables – thus underestimating the effect of text ( e.g. Bushuyev et al., 2024; Kania Štykar, 2025 for row-level examples).
+- **30.4% Missing ZIP Codes**, managed through city-level backup.
+- **Random (rather than temporal) split into training/test data** - potentially a slightly optimistic generalization performance estimate.
+- **Future research**: Obtain a dataset with actual listings price-description joins; use a temporal split into training/test data; geocode the addresses to address the ZIP missingness problem.
 
 ---
