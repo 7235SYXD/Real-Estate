@@ -78,7 +78,7 @@ flowchart LR
     H --> I
 ```
 
-*(GitHub renders Mermaid diagrams natively — this shows directly in the README.)*
+
 
 ---
 
