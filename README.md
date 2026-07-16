@@ -1,4 +1,4 @@
-# 🏡 Predicting Real Estate Listing Success and Price Optimization Using Structural, Locational, and Textual Market Features
+#  Predicting Real Estate Listing Success and Price Optimization Using Structural, Locational, and Textual Market Features
 
 A machine learning pipeline from end to end to predict prices of listings and whether the listings will be sold or not in the states of Texas and New York, using structural features, geographic encodings, and text features from natural language processing derived text signals through a tuned, stacked ensemble.
 
@@ -10,7 +10,7 @@ A machine learning pipeline from end to end to predict prices of listings and wh
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Overview](#-overview)
 - [Key Results](#-key-results)
@@ -26,7 +26,7 @@ A machine learning pipeline from end to end to predict prices of listings and wh
 
 ---
 
-## 📖 Overview
+##  Overview
 
 The conventional automated valuation models (AVMs) depend heavily on structural features. These include bedrooms, bathrooms, and area. The current study explores the significance of **location** and **text description of listings** beyond these structural variables for prediction, and employing a well-validated leakage-proof model pipeline based on **119,979 listings** from two states with distinct structures.
 
@@ -38,7 +38,7 @@ The conventional automated valuation models (AVMs) depend heavily on structural 
 
 ---
 
-## 🏆 Key Results
+##  Key Results
 
 | Metric | Result |
 |---|---|
@@ -51,7 +51,7 @@ The conventional automated valuation models (AVMs) depend heavily on structural 
 
 ---
 
-## 🔄 Workflow
+##  Workflow
 
 ```mermaid
 flowchart LR
@@ -80,7 +80,7 @@ flowchart LR
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 ├── notebooks/
@@ -103,7 +103,7 @@ flowchart LR
 
 ---
 
-## 🗃 Datasets
+##  Datasets
 
 | Dataset | Raw Rows | Cleaned Rows | Role |
 |---|---|---|---|
@@ -112,11 +112,11 @@ flowchart LR
 | **TEXAS 2026** | 12,137 | 11,942 | Free-text descriptions — TX only |
 | **NEW YORK 2026** | 8,273 | 8,193 | Free-text descriptions — NY only |
 
-⚠️ **Note:** the structured price datasets and the description datasets do **not** share a common listing ID. Text features are therefore aggregated to a state-level profile (VADER sentiment, Flesch readability, luxury-keyword density) rather than attached per listing — see [Limitations](#-limitations--future-work).
+ **Note:** the structured price datasets and the description datasets do **not** share a common listing ID. Text features are therefore aggregated to a state-level profile (VADER sentiment, Flesch readability, luxury-keyword density) rather than attached per listing — see [Limitations](#-limitations--future-work).
 
 ---
 
-## 🧪 Methodology
+##  Methodology
 
 | Stage | What happens |
 |---|---|
@@ -129,7 +129,7 @@ flowchart LR
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Modeling:** scikit-learn, CatBoost, TensorFlow/Keras, Optuna
 - **Interpretability:** SHAP, permutation importance
@@ -140,7 +140,7 @@ flowchart LR
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Open `notebooks/NB1_...ipynb` in Google Colab.
 2. Mount your Google Drive when prompted — each notebook reads/writes its checkpoint under:
@@ -152,7 +152,7 @@ flowchart LR
 
 ---
 
-## 📊 Detailed Results
+##  Detailed Results
 
 ### Regression (Test Set)
 
@@ -181,7 +181,7 @@ flowchart LR
 
 ---
 
-## 💡 Business Recommendations
+##  Business Recommendations
 
 1. **Pricing based on ZIP codes as the anchor** — location attributes helped achieve the largest leap in accuracy.
 2. **Invest in improving the text, but on a per-listing basis** — the low NLP contribution does not prove that the text is irrelevant; there are simply problems with the data join.
@@ -190,7 +190,7 @@ flowchart LR
 
 ---
 
-## ⚠️ Limitations & Future Work
+##  Limitations & Future Work
 
 - **NLP Aggregation at State Level**: The description datasets do not have the same ID as the structured prices, and therefore all text features have been computed on state level means rather than listing-level variables – thus underestimating the effect of text ( e.g. Bushuyev et al., 2024; Kania Štykar, 2025 for row-level examples).
 - **30.4% Missing ZIP Codes**, managed through city-level backup.
